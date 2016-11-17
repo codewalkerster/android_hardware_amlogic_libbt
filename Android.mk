@@ -34,7 +34,11 @@ include $(BUILD_SHARED_LIBRARY)
 ifeq ($(BCM_USB_BT), true)
     include $(LOCAL_PATH)/conf/bcm_usb_bt/Android.mk
 else
+ifeq ($(TARGET_PRODUCT), odroidc2)
+    include $(LOCAL_PATH)/conf/hardkernel/odroidc2/Android.mk
+else
     include $(LOCAL_PATH)/conf/meson/Android.mk
+endif
 endif
 
 ifeq ($(TARGET_PRODUCT), full_maguro)
