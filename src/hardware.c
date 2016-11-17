@@ -794,6 +794,7 @@ void hw_config_cback(void *p_mem)
                 /* fall through intentionally */
             case HW_CFG_SET_UART_CLOCK:
                 /* set controller's UART baud rate to 3M */
+#if 0
                 UINT16_TO_STREAM(p, HCI_VSC_UPDATE_BAUDRATE);
                 *p++ = UPDATE_BAUDRATE_CMD_PARAM_SIZE; /* parameter length */
                 *p++ = 0; /* encoded baud rate */
@@ -807,6 +808,7 @@ void hw_config_cback(void *p_mem)
 
                 is_proceeding = bt_vendor_cbacks->xmit_cb(HCI_VSC_UPDATE_BAUDRATE, \
                                                     p_buf, hw_config_cback);
+#endif
                 break;
 
             case HW_CFG_SET_UART_BAUD_2:
