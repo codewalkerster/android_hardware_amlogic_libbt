@@ -31,7 +31,11 @@ include $(LOCAL_PATH)/vnd_buildcfg.mk
 
 include $(BUILD_SHARED_LIBRARY)
 
-include $(LOCAL_PATH)/conf/meson/Android.mk
+ifeq ($(TARGET_PRODUCT), odroidc2)
+    include $(LOCAL_PATH)/conf/hardkernel/odroidc2/Android.mk
+else
+    include $(LOCAL_PATH)/conf/meson/Android.mk
+endif
 
 ifeq ($(TARGET_PRODUCT), full_maguro)
     include $(LOCAL_PATH)/conf/samsung/maguro/Android.mk
